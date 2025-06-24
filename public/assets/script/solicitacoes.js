@@ -1,7 +1,7 @@
 
 // --- LISTAGEM: carregar dados na tabela ---
 if (document.getElementById('tabela-solicitacoes')) {
-  fetch('http://localhost:3000/solicitacoes')
+  fetch('https://meu-back-contratofacil-production.up.railway.app/api/solicitacoes')
     .then(response => response.json())
     .then(dados => {
       const tabela = document.getElementById('tabela-solicitacoes');
@@ -29,7 +29,7 @@ if (window.location.pathname.includes("detalhes-solicitacoes.html")) {
     const params = new URLSearchParams(window.location.search);
     const id = parseInt(params.get("id"));
 
-    fetch(`http://localhost:3000/solicitacoes/${id}`)
+    fetch(`https://meu-back-contratofacil-production.up.railway.app/api/solicitacoes/${id}`)
       .then(response => {
         if (!response.ok) throw new Error('Solicitação não encontrada.');
         return response.json();

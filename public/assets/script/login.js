@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.getElementById("loginForm");
     const mensagemErro = document.getElementById("mensagemErro");
     const tipoAcessoSelecionado = document.getElementById("tipoAcessoSelecionado");
-    const API_URL = "http://localhost:3000";
+    const API_URL = "https://meu-back-contratofacil-production.up.railway.app/api";
 
     try {removeUsuario();}
     catch(e)

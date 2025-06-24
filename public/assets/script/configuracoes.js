@@ -29,7 +29,7 @@ window.addEventListener('DOMContentLoaded', () => {
       {
                if(usuario.tipo == "Gestor")
     {
-        fetch(`http://localhost:3000/gestores/${usuario.id}`, {
+        fetch(`https://meu-back-contratofacil-production.up.railway.app/api/gestores/${usuario.id}`, {
           method: "PATCH",
           headers: {
             "Content-type": "application/json; charset=UTF-8",
@@ -48,12 +48,12 @@ window.addEventListener('DOMContentLoaded', () => {
           .then((response) => response.json())
           .then((json) => {
             console.log(json);
-            window.location.href = "http://localhost:3000/index";
+            window.location.href = "https://meu-back-contratofacil-production.up.railway.app/api/index";
           }).catch(console.error);
       }
       else if(usuario.tipo == "Funcionário")
       {
-        fetch(`http://localhost:3000/funcionarios/${usuario.id}`, {
+        fetch(`https://meu-back-contratofacil-production.up.railway.app/api/funcionarios/${usuario.id}`, {
           method: "PATCH",
           headers: {
             "Content-type": "application/json; charset=UTF-8",
@@ -72,7 +72,7 @@ window.addEventListener('DOMContentLoaded', () => {
           .then((response) => response.json())
           .then((json) => {
             console.log(json);
-            window.location.href = "http://localhost:3000/dashboard-funcionario";
+            window.location.href = "https://meu-back-contratofacil-production.up.railway.app/api/dashboard-funcionario";
           }).catch(console.error);
       }
         }
@@ -88,7 +88,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
              if(usuario.tipo == "Gestor")
     {
-        fetch(`http://localhost:3000/gestores/${usuario.id}`, {
+        fetch(`https://meu-back-contratofacil-production.up.railway.app/api/gestores/${usuario.id}`, {
           method: "PATCH",
           headers: {
             "Content-type": "application/json; charset=UTF-8",
@@ -100,12 +100,12 @@ window.addEventListener('DOMContentLoaded', () => {
           .then((response) => response.json())
           .then((json) => {
             console.log(json);
-            window.location.href = "http://localhost:3000/index";
+            window.location.href = "https://meu-back-contratofacil-production.up.railway.app/api/index";
           }).catch(console.error);
       }
       else if(usuario.tipo == "Funcionário")
       {
-        fetch(`http://localhost:3000/funcionarios/${usuario.id}`, {
+        fetch(`https://meu-back-contratofacil-production.up.railway.app/api/funcionarios/${usuario.id}`, {
           method: "PATCH",
           headers: {
             "Content-type": "application/json; charset=UTF-8",
@@ -117,7 +117,7 @@ window.addEventListener('DOMContentLoaded', () => {
           .then((response) => response.json())
           .then((json) => {
             console.log(json);
-            window.location.href = "http://localhost:3000/dashboard-funcionario";
+            window.location.href = "https://meu-back-contratofacil-production.up.railway.app/api/dashboard-funcionario";
           }).catch(console.error);
       }
         }

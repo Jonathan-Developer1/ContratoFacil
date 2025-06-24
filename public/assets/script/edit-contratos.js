@@ -8,7 +8,7 @@
 
   function tornarInativo()
   {
-     fetch(`http://localhost:3000/contratos/${id}`, {
+     fetch(`https://meu-back-contratofacil-production.up.railway.app/api/contratos/${id}`, {
           method: "PATCH",
           headers: {
             "Content-type": "application/json; charset=UTF-8",
@@ -25,7 +25,7 @@
     // Função que atualiza o json com a assinatura
     function assinarContrato()
     {
-       fetch(`http://localhost:3000/contratos/${id}`, {
+       fetch(`https://meu-back-contratofacil-production.up.railway.app/api/contratos/${id}`, {
           method: "PATCH",
           headers: {
             "Content-type": "application/json; charset=UTF-8",
@@ -37,7 +37,7 @@
           .then((response) => response.json())
           .then((json) => {
             console.log(json);
-            window.location.href = "http://localhost:3000/contratos-exibicao-funcionario";
+            window.location.href = "https://meu-back-contratofacil-production.up.railway.app/api/contratos-exibicao-funcionario";
           }).catch(console.error);
       }
     
@@ -45,7 +45,7 @@
     function exibicaoContratoFuncionario()
     {
       const container = document.getElementById('container-funcionario');
-      fetch(`http://localhost:3000/contratos/?id=${id}`)
+      fetch(`https://meu-back-contratofacil-production.up.railway.app/api/contratos/?id=${id}`)
           .then((response) => response.json())
           .then((json) => {
             const contratos = json[0];
@@ -86,7 +86,7 @@
     {
       const container = document.getElementById('container');
 
-     fetch(`http://localhost:3000/contratos/?id=${id}`)
+     fetch(`https://meu-back-contratofacil-production.up.railway.app/api/contratos/?id=${id}`)
           .then((response) => response.json())
           .then((json) => {
             const contratos = json[0];
@@ -125,7 +125,7 @@
       // Função que habilita a edição do contrato
           function mostrarEdicao()
           {
-            fetch(`http://localhost:3000/contratos/?id=${id}`)
+            fetch(`https://meu-back-contratofacil-production.up.railway.app/api/contratos/?id=${id}`)
             .then((response) => response.json())
             .then((json) => {
                 const contratos = json[0];
@@ -181,7 +181,7 @@
         {
         e.preventDefault();
               
-        fetch(`http://localhost:3000/contratos/${id}`, {
+        fetch(`https://meu-back-contratofacil-production.up.railway.app/api/contratos/${id}`, {
           method: "PUT",
           headers: {
             "Content-type": "application/json; charset=UTF-8",
@@ -198,6 +198,6 @@
           .then((response) => response.json())
           .then((json) => {
             console.log(json);
-            window.location.href = "http://localhost:3000/contratos-exibicao";
+            window.location.href = "https://meu-back-contratofacil-production.up.railway.app/api/contratos-exibicao";
           }).catch(console.error);
       })}

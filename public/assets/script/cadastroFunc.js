@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000/funcionarios';
+const apiUrl = 'https://meu-back-contratofacil-production.up.railway.app/api/funcionarios';
 
 const form = document.getElementById('formFuncionario');
 const tbody = document.getElementById('listaFuncionarios');

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const API_URL = "http://localhost:3000";
+    const API_URL = "https://meu-back-contratofacil-production.up.railway.app/api";
     const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
     const destinatarioChat = JSON.parse(localStorage.getItem("destinatarioChat"));
     

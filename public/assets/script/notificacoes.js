@@ -33,7 +33,7 @@ function renderizarTabela(lista) {
 // Função principal para carregar e exibir notificações
 async function carregarNotificacoes() {
   try {
-    const resposta = await fetch('http://localhost:3000/notificacoes');
+    const resposta = await fetch('https://meu-back-contratofacil-production.up.railway.app/api/notificacoes');
     if (!resposta.ok) throw new Error(`Erro HTTP: ${resposta.status}`);
 
     const notificacoes = await resposta.json();
@@ -68,7 +68,7 @@ function adicionarEventos() {
       const id = botao.getAttribute('data-id');
       const confirmar = confirm('Tem certeza que deseja excluir esta notificação?');
       if (confirmar) {
-        await fetch(`http://localhost:3000/notificacoes/${id}`, {
+        await fetch(`https://meu-back-contratofacil-production.up.railway.app/api/notificacoes/${id}`, {
           method: 'DELETE',
         });
         carregarNotificacoes(); // Recarrega a lista

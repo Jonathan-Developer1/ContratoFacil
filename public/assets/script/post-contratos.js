@@ -13,7 +13,7 @@
         const dtnasc = document.getElementById('dtnasc');
         var idFuncionario;
 
-         fetch(`http://localhost:3000/funcionarios/?id=${id}`)
+         fetch(`https://meu-back-contratofacil-production.up.railway.app/api/funcionarios/?id=${id}`)
         .then((response) => response.json())
           .then((json) => {
             json[0];
@@ -47,14 +47,14 @@
 
          const params = new URLSearchParams(window.location.search);
             const id = parseInt(params.get('id'));
-        fetch(`http://localhost:3000/funcionarios/?id=${id}`)
+        fetch(`https://meu-back-contratofacil-production.up.railway.app/api/funcionarios/?id=${id}`)
         .then((response) => response.json())
           .then((json) => {
              const idFuncionario = json[0].id;
              const cpf = json[0].cpf;
           
         
-        fetch("http://localhost:3000/contratos", 
+        fetch("https://meu-back-contratofacil-production.up.railway.app/api/contratos", 
          {
           method: "POST",
           headers: {

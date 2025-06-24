@@ -29,7 +29,7 @@ function exibirContratosFuncionario()
     
     const lista = document.getElementById('lista-contrato-funcionario');
 
-    fetch("http://localhost:3000/contratos")
+    fetch("https://meu-back-contratofacil-production.up.railway.app/api/contratos")
     .then((response) => response.json())
     .then((json) =>
     {
@@ -63,7 +63,7 @@ function exibirContratosFuncionario()
     lista.innerHTML = "";
    
 
-    fetch("http://localhost:3000/contratos")
+    fetch("https://meu-back-contratofacil-production.up.railway.app/api/contratos")
     .then((response) => response.json())
     .then((json) =>
     {
@@ -140,7 +140,7 @@ function pesquisaFuncionarios()
         const termo = entrada.value.toLowerCase().trim();
         console.log(termo)
         
-        fetch("http://localhost:3000/funcionarios")
+        fetch("https://meu-back-contratofacil-production.up.railway.app/api/funcionarios")
         .then((response) => response.json())
         .then((json) =>
         { 
@@ -172,7 +172,7 @@ function exibicaoContratos()
   const contagem = document.getElementById('contagem');
   var contador = 0;
 
-  fetch("http://localhost:3000/contratos")
+  fetch("https://meu-back-contratofacil-production.up.railway.app/api/contratos")
     .then((response) => response.json())
     .then((json) =>
     {
@@ -203,7 +203,7 @@ function exibicaoContratosFuncionario()
     const lista = document.getElementById('lista-funcionario');
         
 
-    fetch("http://localhost:3000/contratos")
+    fetch("https://meu-back-contratofacil-production.up.railway.app/api/contratos")
     .then((response) => response.json())
     .then((json) =>
     {

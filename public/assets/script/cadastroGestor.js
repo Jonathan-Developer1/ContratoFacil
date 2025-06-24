@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:3000/gestores';
+const apiUrl = 'https://meu-back-contratofacil-production.up.railway.app/api/gestores';
 
 const form = document.getElementById('formFuncionario');
 const tbody = document.getElementById('listaGestor');
