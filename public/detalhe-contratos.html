@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contratos</title>
+</head>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/detalhe-contrato.css">
+
+
+<body>
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="assets/imgs/Logo_ContratoFacil.png" alt="">
+        <h1>ContratoFácil</h1>
+      </div>
+      <div id="perfil">
+        <img src="assets/imgs/perfil.png" alt="">
+      <span id="nome"></span>
+      </div>
+      
+      <nav>
+        <ul>
+          <li><a href="dashboard-gestor.html">Painel de controle</a></li>
+          <li><a href="contratos-exibicao.html">Contratos</a></li>
+          <li><a href="telaNotificacoes.html">Notificações</a></li>
+          <li><a href="configuracoes.html">Configurações</a></li>
+          <li><a href="#" id="sair" class="sair">Sair</a></li>
+
+        </ul>
+      </nav>
+    </aside>
+    <main class="conteudo">
+        <div id="container"></div>
+    </main>
+
+</body>
+<script>
+    const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+    console.log(usuario.tipo)
+    if (usuario.tipo != "Gestor") {
+        alert("Você não tem permissão");
+        window.history.go(-1);
+    }
+</script>
+<script src="assets/script/edit-contratos.js"></script>
+<script src="assets/script/delete-contratos.js"></script>
+<script src="assets/script/get-contrato.js"></script>
+<script src="assets/script/app.js"></script>
+<script src="assets/script/login.js"></script>
+
+</html>

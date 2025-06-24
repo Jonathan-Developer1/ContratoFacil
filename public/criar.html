@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Criar Notificação</title>
+  <link rel="stylesheet" href="assets/css/notificacoes.css" />
+</head>
+
+<body>
+  <!-- ============================
+       Menu Lateral
+  ============================ -->
+  <aside class="sidebar">
+      <div class="logo">
+        <img src="assets/imgs/Logo_ContratoFacil.png" alt="">
+        <h1>ContratoFácil</h1>
+      </div>
+      <div id="perfil">
+        <img src="assets/imgs/perfil.png" alt="">
+      <span id="nome"></span>
+      </div>
+      
+      <nav>
+        <ul>
+          <li><a href="dashboard-gestor.html">Painel de controle</a></li>
+          <li><a href="contratos-exibicao.html">Contratos</a></li>
+          <li><a href="telaNotificacoes.html">Notificações</a></li>
+          <li><a href="configuracoes.html">Configurações</a></li>
+          <li><a href="#" id="sair" class="sair">Sair</a></li>
+
+        </ul>
+      </nav>
+    </aside>
+
+  <!-- ============================
+       Conteúdo Principal
+  ============================ -->
+  <main class="conteudo"> <!-- Área principal do conteúdo -->
+    <h1>Criar Notificação</h1> <!-- Título principal da página -->
+
+    <!-- ============================
+         Formulário de Criação/Edição
+    ============================ -->
+    <form id="form-notificacao"> <!-- Formulário de criação/edição de notificação -->
+
+      <label for="titulo">Título da notificação</label>
+      <input type="text" id="titulo" required /> <!-- Campo de texto obrigatório para o título -->
+
+      <label for="descricao">Descrição</label>
+      <textarea id="descricao" rows="4" required></textarea> <!-- Campo de texto para a descrição -->
+
+      <label for="destinatario">Destinatário</label>
+      <input type="text" id="destinatario" placeholder="Digite o CPF (apenas o numeros, sem pontos)" required />
+      <!-- Campo de destinatário com placeholder -->
+
+      <label for="validade">Validade</label>
+      <input type="date" id="validade" required /> <!-- Campo de data obrigatória -->
+
+      <label for="status">Status</label>
+      <select id="status" required> <!-- Campo de seleção obrigatório -->
+        <option value="Pendente">Pendente</option> <!-- Opção padrão -->
+        <option value="Concluído">Concluído</option> <!-- Outra opção -->
+      </select>
+
+      <!-- ============================
+           Botões de Ação
+      ============================ -->
+      <div class="botoes-form"> <!-- Área dos botões -->
+        <button type="submit" class="salvar">SALVAR NOTIFICAÇÃO</button> <!-- Envia o formulário -->
+        <button type="button" id="cancelar">CANCELAR</button> <!-- Cancela e volta para a lista -->
+      </div>
+    </form>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const form = document.getElementById('form-notificacao');
+      const editandoId = localStorage.getItem('editando');
+      console.log("📌 ID de edição carregado:", editandoId);
+
+      if (editandoId) {
+        try {
+          const resposta = await fetch('http://localhost:3000/notificacoes');
+          const notificacoes = await resposta.json();
+          const n = notificacoes.find(n => n.id == editandoId);
+          console.log("📌 Notificação encontrada:", n);
+
+          if (n) {
+            document.getElementById('titulo').value = n.titulo || '';
+            document.getElementById('descricao').value = n.descricao || '';
+            document.getElementById('destinatario').value = n.destinatario || '';
+            document.getElementById('validade').value = n.validade || '';
+            document.getElementById('status').value = n.status || '';
+          }
+        } catch (erro) {
+          alert('Erro ao carregar dados para edição.');
+          console.error(erro);
+        }
+      }
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const notificacao = {
+          titulo: document.getElementById('titulo').value.trim(),
+          descricao: document.getElementById('descricao').value.trim(),
+          destinatario: document.getElementById('destinatario').value.trim(),
+          validade: document.getElementById('validade').value,
+          status: document.getElementById('status').value
+        };
+
+        try {
+          if (editandoId) {
+            const url = `http://localhost:3000/notificacoes/${editandoId}`;
+            console.log("📌 Enviando PUT para:", url);
+
+            const resposta = await fetch(url, {
+              method: 'PUT',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(notificacao)
+            });
+
+            if (!resposta.ok) {
+              const erroTexto = await resposta.text();
+              console.error('📛 Erro na resposta do PUT:', erroTexto);
+              throw new Error('Erro ao editar notificação');
+            }
+
+            localStorage.removeItem('editando');
+          } else {
+            const resposta = await fetch('http://localhost:3000/notificacoes', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(notificacao)
+            });
+            if (!resposta.ok) throw new Error('Erro ao salvar notificação');
+          }
+          window.location.href = 'telaNotificacoes.html';
+          alert('Notificação salva com sucesso!');
+
+        } catch (erro) {
+          alert('Erro: ' + erro.message);
+          console.error(erro);
+        }
+      });
+      document.getElementById('cancelar').addEventListener('click', () => {
+        localStorage.removeItem('editando'); // Limpa o ID de edição
+        window.location.href = 'telaNotificacoes.html';
+      });
+
+    });
+
+  </script>
+  <script src="assets/script/get-contrato.js"></script>
+  <script src="assets/script/login.js"></script>
+</body>
+
+</html>

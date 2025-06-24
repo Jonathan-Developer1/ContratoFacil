@@ -1,0 +1,237 @@
+/* ============================
+   Estilização global da página
+============================= */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+}
+
+/* ============================
+   Menu lateral fixo à esquerda
+============================= */
+.sidebar {
+  width: 300px;
+  background: #acabab;
+  color: black;
+  padding: 10px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.logo{
+  display: flex;
+}
+
+.logo h1{
+  text-align: center;
+  font-size: 25px;
+  margin:20px 0 10px 0;
+}
+
+.logo img {
+  width: 60px;
+  height: 60px;
+  padding: 5px 10px;
+  margin: 0px;
+}
+
+#perfil{
+  margin-left:20px;
+}
+#perfil span{
+ margin-left: 1rem;
+}
+
+#perfil img{
+  width: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+nav ul {
+  list-style: none;
+  font-size: 1.3rem;
+  padding: 10px 20px;
+
+}
+
+nav ul li {
+  margin: 2rem 0 2rem 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+.sair {
+  margin-top: 500px;
+  display: block;
+}
+
+/* ============================
+   Conteúdo principal (lado direito)
+============================= */
+.conteudo {
+  flex: 1;
+  padding: 30px;
+  margin-left: 321px;
+  height: 100vh;
+  overflow-y: auto;
+  background: #fff;
+}
+
+/* Título principal */
+h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+/* Área dos botões no topo da página */
+.botoes-topo {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+/* Botões de ação em geral */
+.botao {
+  background: #007BFF;
+  color: black;
+  border: none;
+  padding: 12px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.botao:hover {
+  background: #0056b3;
+  color: black;
+}
+
+/* ============================
+   Tabela de notificações
+============================= */
+.tabela-container input {
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+}
+
+/* Tabela e estrutura geral */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fdfdfd;
+  border: 1px solid #ccc;
+}
+
+/* Células da tabela */
+th,
+td {
+  padding: 14px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+/* Cabeçalho da tabela */
+th {
+  background-color: #f1f1f1;
+}
+
+/* Botões de editar e excluir */
+.editar,
+.excluir {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Botão editar */
+.editar {
+  background: #17a2b8;
+  color: white;
+  margin-right: 5px;
+}
+
+.editar:hover {
+  background: #117a8b;
+}
+
+/* Botão excluir */
+.excluir {
+  background: #dc3545;
+  color: white;
+}
+
+.excluir:hover {
+  background: #c82333;
+}
+
+/* ============================
+   Estilo do formulário
+============================= */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 600px;
+}
+
+/* Campos de input, textarea e select */
+input,
+textarea,
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Botões do formulário (salvar/cancelar) */
+.botoes-form {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* Botão salvar */
+.salvar {
+  background: #007BFF;
+  color: black;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.salvar:hover {
+  background: #0056b3;
+  color: black;
+}
+
+/* Botão cancelar */
+#cancelar {
+  background: #ffbfbf;
+  color: black;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cancelar:hover {
+  background: rgb(255, 166, 166);
+}

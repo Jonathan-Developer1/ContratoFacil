@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notificações</title>
+  <link rel="stylesheet" href="assets/css/notificacoes.css" />
+</head>
+
+<body>
+  <!-- ============================
+       Menu Lateral
+  ============================= -->
+  <aside class="sidebar">
+      <div class="logo">
+        <img src="assets/imgs/Logo_ContratoFacil.png" alt="">
+        <h1>ContratoFácil</h1>
+      </div>
+      <div id="perfil">
+        <img src="assets/imgs/perfil.png" alt="">
+      <span id="nome"></span>
+      </div>
+      
+      <nav>
+        <ul>
+          <li><a href="dashboard-gestor.html">Painel de controle</a></li>
+          <li><a href="contratos-exibicao.html">Contratos</a></li>
+          <li><a href="telaNotificacoes.html">Notificações</a></li>
+          <li><a href="configuracoes.html">Configurações</a></li>
+          <li><a href="#" id="sair" class="sair">Sair</a></li>
+
+        </ul>
+      </nav>
+    </aside>
+
+  <!-- ============================
+       Conteúdo Principal
+  ============================= -->
+  <main class="conteudo"> <!-- Área principal da página -->
+    <h1>Notificações</h1> <!-- Título principal -->
+
+    <div class="botoes-topo"> <!-- Botões no topo da lista -->
+      <a href="criar.html" class="botao">Criar uma notificação</a> <!-- Link para a página de criação -->
+      <a href="telaSolicitacoes.html" class="botao">Solicitações</a><!-- link para a pagina de solicitações -->
+
+    </div>
+
+    <!-- ============================
+         Tabela de Notificações
+    ============================= -->
+    <div class="tabela-container">
+      <input type="text" id="pesquisar" placeholder="Pesquisar" /> <!-- Campo de busca -->
+
+      <table>
+        <thead>
+          <tr>
+            <th>Título</th> <!-- Cabeçalho da coluna Título -->
+            <th>Destinatário</th> <!-- Cabeçalho da coluna Destinatário -->
+            <th>Vencimento</th> <!-- Cabeçalho da coluna Vencimento -->
+            <th>Status</th> <!-- Cabeçalho da coluna Status -->
+            <th>Ação</th> <!-- Cabeçalho da coluna Ações (Editar/Excluir) -->
+          </tr>
+        </thead>
+        <tbody id="lista-notificacoes"></tbody> <!-- Corpo da tabela será preenchido dinamicamente via JS -->
+      </table>
+    </div>
+  </main>
+
+  <script src="assets/script/notificacoes.js"></script>
+  <script src="assets/script/login.js"></script>
+  <script src="assets/script/get-contrato.js"></script>
+
+</body>
+
+</html>

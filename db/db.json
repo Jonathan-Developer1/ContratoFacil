@@ -1,0 +1,385 @@
+{
+  "empresa": [
+    {
+      "id": "1",
+      "nome": "ContratoFacil"
+    }
+  ],
+  "gestores": [
+    {
+      "id": "1",
+      "cpf": "12345678910",
+      "senha": "123456"
+    },
+    {
+      "id": "3",
+      "nome": "Jonathan Rubens Dutra Pereira",
+      "cpf": "14308868629",
+      "email": "jonathanrubens10@gmail.com",
+      "senha": "12",
+      "telefone": "31998506306",
+      "dataNascimento": "1111-11-11",
+      "tipo": "Gestor"
+    }
+  ],
+  "funcionarios": [
+    {
+      "id": "1",
+      "nome": "Yallison Régis",
+      "cpf": "11122233344",
+      "email": "yallison@gmail.com",
+      "senha": "cf123",
+      "telefone": "31222222254",
+      "dataNascimento": "2004-12-21",
+      "tipo": "Funcionário",
+      "endereco": {
+        "cep": 32412090,
+        "rua": "Rua Um",
+        "numero": "263",
+        "cidade": "Ibirité",
+        "estado": "MG"
+      }
+    },
+    {
+      "id": "2",
+      "nome": "Jonathan Rubens Dutra Pereira",
+      "cpf": "14308868629",
+      "email": "jonathanrubens10@gmail.com",
+      "senha": "23",
+      "telefone": "1221",
+      "dataNascimento": "2222-02-12"
+    }
+  ],
+  "contratos": [
+    {
+      "id": "763c",
+      "userId": 1,
+      "idFuncionario": "1",
+      "nome": "Yallison Régis",
+      "email": "yallison@gmail.com",
+      "telefone": "yallison@gmail.com",
+      "cpf": "11122233344",
+      "datanascimento": "2004-12-21",
+      "cargo": "Testador",
+      "tipo": "Admissional",
+      "assinado": false,
+      "ativo": true
+    },
+       {
+      "id": 2,
+      "userId": 1,
+      "idFuncionario": "1",
+      "nome": "Yallison Régis",
+      "email": "yallison@gmail.com",
+      "telefone": "yallison@gmail.com",
+      "cpf": "11122233344",
+      "datanascimento": "2004-12-21",
+      "cargo": "Jogador",
+      "tipo": "Férias",
+      "assinado": false,
+      "ativo": false
+    }
+  ],
+  "notificacoes": [
+    {
+      "titulo": "mudança data de nascimento",
+      "descricao": "mudança data de nascimento para 22/07/1993",
+      "destinatario": "14308868629",
+      "validade": "2025-06-21",
+      "status": "Pendente",
+      "id": "64c5"
+    },
+    {
+      "id": "1b05",
+      "titulo": "Nova Mensagem do Gestor",
+      "descricao": "Você recebeu uma nova mensagem: \"boa tarde\"",
+      "destinatario": "11122233344",
+      "validade": "2025-06-21",
+      "status": "Pendente",
+      "tipoNotificacao": "Chat"
+    },
+    {
+      "id": "5f45",
+      "titulo": "Nova Mensagem do Gestor",
+      "descricao": "Você recebeu uma nova mensagem: \"como está?\"",
+      "destinatario": "11122233344",
+      "validade": "2025-06-21",
+      "status": "Pendente",
+      "tipoNotificacao": "Chat"
+    },
+    {
+      "id": "3730",
+      "titulo": "alteração contato",
+      "descricao": "preciso trocar meu email e telefone",
+      "destinatario": "12345678910",
+      "validade": "2025-06-21",
+      "status": "Pendente"
+    },
+    {
+      "id": "cba5",
+      "titulo": "Nova Mensagem do Gestor",
+      "descricao": "Você recebeu uma nova mensagem: \"boa noite\"",
+      "destinatario": "14308868629",
+      "validade": "2025-06-21",
+      "status": "Pendente",
+      "tipoNotificacao": "Chat"
+    },
+    {
+      "id": "b0de",
+      "titulo": "Nova Mensagem do Gestor",
+      "descricao": "Você recebeu uma nova mensagem: \"precisamos marcar uma reunião\"",
+      "destinatario": "14308868629",
+      "validade": "2025-06-21",
+      "status": "Pendente",
+      "tipoNotificacao": "Chat"
+    },
+    {
+      "id": "a2c0",
+      "titulo": "Nova Mensagem do Gestor",
+      "descricao": "Você recebeu uma nova mensagem: \"boa noite marcos\"",
+      "destinatario": "11122233344",
+      "validade": "2025-06-21",
+      "status": "Pendente",
+      "tipoNotificacao": "Chat"
+    },
+    {
+      "id": "57fa",
+      "titulo": "Nova Mensagem do Gestor",
+      "descricao": "Você recebeu uma nova mensagem: \"Olá Yallison, bom dia\"",
+      "destinatario": "11122233344",
+      "validade": "2025-06-29",
+      "status": "Pendente",
+      "tipoNotificacao": "Chat"
+    },
+    {
+      "id": "40c8",
+      "titulo": "Nova Mensagem do Gestor",
+      "descricao": "Você recebeu uma nova mensagem: \"como posso te ajudar?\"",
+      "destinatario": "11122233344",
+      "validade": "2025-06-29",
+      "status": "Pendente",
+      "tipoNotificacao": "Chat"
+    },
+    {
+      "id": "ef7c",
+      "titulo": "Nova Mensagem do Gestor",
+      "descricao": "Você recebeu uma nova mensagem: \"como posso ajudar?\"",
+      "destinatario": "14308868629",
+      "validade": "2025-06-29",
+      "status": "Pendente",
+      "tipoNotificacao": "Chat"
+    },
+    {
+      "id": "5137",
+      "titulo": "Nova Mensagem do Funcionário",
+      "descricao": "Você recebeu uma nova mensagem: \"bom dia jhonathan\"",
+      "destinatario": "14308868629",
+      "validade": "2025-06-29",
+      "status": "Pendente",
+      "tipoNotificacao": "Chat"
+    },
+    {
+      "id": "3fe8",
+      "titulo": "Nova Mensagem do Funcionário",
+      "descricao": "Você recebeu uma nova mensagem: \"precisamos marcar uma data sobre aquela reunião qu...\"",
+      "destinatario": "14308868629",
+      "validade": "2025-06-29",
+      "status": "Pendente",
+      "tipoNotificacao": "Chat"
+    },
+    {
+      "id": "c4a6",
+      "titulo": "Nova Mensagem do Gestor",
+      "descricao": "Você recebeu uma nova mensagem: \"dia 26 está bom para você?\"",
+      "destinatario": "11122233344",
+      "validade": "2025-06-29",
+      "status": "Pendente",
+      "tipoNotificacao": "Chat"
+    },
+    {
+      "id": "4d7c",
+      "titulo": "Nova Mensagem do Funcionário",
+      "descricao": "Você recebeu uma nova mensagem: \".\"",
+      "destinatario": "14308868629",
+      "validade": "2025-06-29",
+      "status": "Pendente",
+      "tipoNotificacao": "Chat"
+    },
+    {
+      "id": "367c",
+      "titulo": "Nova Mensagem do Gestor",
+      "descricao": "Você recebeu uma nova mensagem: \"sim\"",
+      "destinatario": "11122233344",
+      "validade": "2025-06-29",
+      "status": "Pendente",
+      "tipoNotificacao": "Chat"
+    },
+    {
+      "id": "mc7l7zftmbfeotpee2j",
+      "titulo": "Nova Mensagem do Funcionário",
+      "descricao": "Você recebeu uma nova mensagem: \"na verdade, pode ser dia 31?\"",
+      "destinatario": "14308868629",
+      "validade": "2025-06-29",
+      "status": "Pendente",
+      "tipoNotificacao": "Chat"
+    },
+    {
+      "id": "mc7lbwvosmr1qk8rn4s",
+      "titulo": "Nova Mensagem do Gestor",
+      "descricao": "Você recebeu uma nova mensagem: \"não tenho disponibilidade para dia 31\"",
+      "destinatario": "11122233344",
+      "validade": "2025-06-29",
+      "status": "Pendente",
+      "tipoNotificacao": "Chat"
+    },
+    {
+      "id": "mc7lrvmugaol76f7akv",
+      "titulo": "Nova Mensagem do Funcionário",
+      "descricao": "Você recebeu uma nova mensagem: \"olá\"",
+      "validade": "2025-06-29",
+      "status": "Pendente",
+      "tipoNotificacao": "Chat"
+    },
+    {
+      "id": "mc7ofcmu5cdbmo97625",
+      "titulo": "Nova Mensagem do Gestor",
+      "descricao": "Você recebeu uma nova mensagem: \"bom dia\"",
+      "destinatario": "11122233344",
+      "validade": "2025-06-29",
+      "status": "Pendente",
+      "tipoNotificacao": "Chat"
+    },
+    {
+      "id": "mc7ra4tcgpvvg1o1rmg",
+      "titulo": "Nova Mensagem do Gestor",
+      "descricao": "Você recebeu uma nova mensagem: \"bom dia\"",
+      "destinatario": "11122233344",
+      "validade": "2025-06-29",
+      "status": "Pendente",
+      "tipoNotificacao": "Chat"
+    },
+    {
+      "id": "mc7rpuij7o1bl3sh029",
+      "titulo": "Nova Mensagem do Funcionário",
+      "descricao": "Você recebeu uma nova mensagem: \"como vai?\"",
+      "destinatario": "14308868629",
+      "validade": "2025-06-29",
+      "status": "Pendente",
+      "tipoNotificacao": "Chat"
+    },
+    {
+      "id": "3849",
+      "titulo": "assinatura de contrato",
+      "descricao": "assine um contrato",
+      "destinatario": "11122233344",
+      "validade": "2023-02-11",
+      "status": "Pendente"
+    }
+  ],
+  "solicitacoes": [
+    {
+      "id": "1",
+      "titulo": "Solicitação de Acesso",
+      "descricao": "Solicito acesso ao sistema de gestão de contratos.",
+      "solicitante": "João Silva",
+      "data": "2025-06-01",
+      "status": "Pendente"
+    },
+    {
+      "id": "2",
+      "titulo": "Renovação de Contrato",
+      "descricao": "O contrato atual está prestes a vencer. Solicito renovação por mais 12 meses.",
+      "solicitante": "Maria Oliveira",
+      "data": "2025-06-03",
+      "status": "Pendente"
+    },
+    {
+      "id": "3",
+      "titulo": "Atualização de Cláusula",
+      "descricao": "Necessário revisar cláusula 7 sobre prazo de entrega.",
+      "solicitante": "Pedro Martins",
+      "data": "2025-06-05",
+      "status": "Pendente"
+    }
+  ],
+  "mensagens": [
+    {
+      "id": "4686",
+      "remetente": "12345678900",
+      "remetenteNome": "Jonathan ",
+      "destinatario": "11122233344",
+      "conteudo": "Boa noite Yallison, tudo bem? Poderia me enviar alguns dados para atualizar seu cadastro por favor?",
+      "timestamp": "2025-06-22T03:34:37.875Z",
+      "tipoRemetente": "gestor"
+    },
+    {
+      "id": "574d",
+      "remetente": "11122233344",
+      "remetenteNome": "Yallison (Funcionário)",
+      "destinatario": "12345678900",
+      "conteudo": "Claro, quais dados você deseja?",
+      "timestamp": "2025-06-22T03:45:23.762Z"
+    },
+    {
+      "id": "04a7",
+      "remetente": "12345678900",
+      "remetenteNome": "Usuário Teste",
+      "conteudo": "preciso da sua data de nascimento e cep por favor",
+      "timestamp": "2025-06-22T04:01:42.469Z",
+      "tipoRemetente": "gestor"
+    },
+    {
+      "id": "7faf",
+      "remetente": "11122233344",
+      "remetenteNome": "Yallison Régis",
+      "destinatario": "12345678910",
+      "conteudo": "boa noite, tudo bem?",
+      "timestamp": "2025-06-22T04:04:07.530Z",
+      "tipoRemetente": "funcionario"
+    },
+    {
+      "id": "5975",
+      "remetente": "11122233344",
+      "remetenteNome": "Yallison Régis",
+      "destinatario": "12345678900",
+      "conteudo": "preciso da data de nascimento e cep",
+      "timestamp": "2025-06-22T04:29:21.463Z",
+      "tipoRemetente": "funcionario"
+    },
+    {
+      "id": "e3b3",
+      "remetente": "14308868629",
+      "remetenteNome": "Jonathan Rubens Dutra Pereira",
+      "destinatario": "14308868629",
+      "conteudo": "como posso ajudar?",
+      "timestamp": "2025-06-22T11:13:07.746Z",
+      "tipoRemetente": "gestor"
+    },
+    {
+      "id": "mc7lrvlevhq2z14clg",
+      "remetente": "11122233344",
+      "remetenteNome": "Yallison Régis",
+      "conteudo": "olá",
+      "timestamp": "2025-06-22T11:47:13.970Z",
+      "tipoRemetente": "funcionario"
+    },
+    {
+      "id": "mc7ra4sy35yje8cl5un",
+      "remetente": "14308868629",
+      "remetenteNome": "Jonathan Rubens Dutra Pereira",
+      "destinatario": "11122233344",
+      "conteudo": "bom dia",
+      "timestamp": "2025-06-22T14:21:23.794Z",
+      "tipoRemetente": "gestor"
+    },
+    {
+      "id": "mc7rpuibqf9wwoyduh",
+      "remetente": "11122233344",
+      "remetenteNome": "Yallison Régis",
+      "destinatario": "14308868629",
+      "conteudo": "como vai?",
+      "timestamp": "2025-06-22T14:33:36.947Z",
+      "tipoRemetente": "funcionario"
+    }
+  ]
+}

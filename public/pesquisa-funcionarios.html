@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisar Funcionários</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/pesquisa-funcionario.css">
+</head>
+
+<body>
+    <!-- ============================
+       Menu Lateral
+    ============================= -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="assets/imgs/Logo_ContratoFacil.png" alt="">
+        <h1>ContratoFácil</h1>
+      </div>
+      <div id="perfil">
+        <img src="assets/imgs/perfil.png" alt="">
+      <span id="nome"></span>
+      </div>
+      
+      <nav>
+        <ul>
+          <li><a href="dashboard-gestor.html">Painel de controle</a></li>
+          <li><a href="contratos-exibicao.html">Contratos</a></li>
+          <li><a href="telaNotificacoes.html">Notificações</a></li>
+          <li><a href="configuracoes.html">Configurações</a></li>
+          <li><a href="#" id="sair" class="sair">Sair</a></li>
+
+        </ul>
+      </nav>
+    </aside>
+    <!-- ============================
+       Conteúdo Principal
+    ============================= -->
+    <main class="conteudo">
+        <div class="inputs">
+            <div class="pesquisa">
+                <label for="pesquisar-funcionarios">Para qual funcionário deseja enviar o contrato</label>
+                <input type="text" id="pesquisar-funcionarios">
+            </div>
+            <div class="enviar">
+                <button id="botaoEnvio">Pesquisar</button>
+            </div>
+        </div>
+        <section class="contratos">
+            <table id="lista-funcionario">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+            </table>
+        </section>
+        </div>
+    </main>
+</body>
+<script>
+    const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+    console.log(usuario.tipo)
+    if (usuario.tipo != "Gestor") {
+        alert("Você não tem permissão");
+        window.history.go(-1);
+    }
+</script>
+<script src="assets/script/get-contrato.js"></script>
+<script src="assets/script/app.js"></script>
+<script src="assets/script/login.js"></script>
+
+</html>

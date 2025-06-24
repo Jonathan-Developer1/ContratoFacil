@@ -1,0 +1,177 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* ============================
+   Menu lateral fixo à esquerda
+============================= */
+.sidebar {
+    width: 300px;
+    background: #acabab;
+    color: black;
+    padding: 10px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    gap: 0;
+}
+
+
+
+.logo {
+    display: flex;
+}
+
+.logo h1 {
+    text-align: center;
+    font-size: 25px;
+    margin: 20px 0 10px 0;
+}
+
+.logo img {
+  width: 60px;
+  height: 60px;
+  padding: 5px 10px;
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+nav ul {
+  list-style: none;
+  font-size: 1.3rem;
+  padding: 0.1px 20px;
+  margin-top: 33px;
+}
+
+nav ul li {
+  margin: 1.9rem 0 2rem 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+.sair {
+    margin-top: 500px;
+    display: block;
+}
+
+/* ============================
+   Conteúdo principal (lado direito)
+============================= */
+.conteudo {
+    flex: 1;
+    padding: 30px;
+    margin-left: 321px;
+    height: 100vh;
+    overflow-y: auto;
+    background: #fff;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+
+}
+
+button {
+    background-color: #44a1ff;
+    border: none;
+    padding: 15px 30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+
+h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.inputs {
+    display: grid;
+    grid-template-columns: 6fr 5fr 1fr;
+}
+
+.pesquisa {
+    height: 5rem;
+    width: max-content;
+    grid-auto-flow: column;
+}
+
+input {
+    width: 100%;
+    padding: .5rem 1rem;
+    font-size: .8rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: #fdfdfd;
+    transition: border-color 0.2s;
+    margin-top: 10px;
+}
+
+input:focus {
+    border-color: #1e88e5;
+    outline: none;
+    background: #fff;
+}
+
+
+.enviar {
+    height: 5rem;
+    width: max-content;
+    grid-auto-flow: column;
+
+}
+
+select {
+    grid-auto-flow: column;
+    width: max-content;
+    padding: .5rem 1rem;
+    font-size: .8rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: #fdfdfd;
+    transition: border-color 0.2s;
+}
+
+select:focus {
+    border-color: #1e88e5;
+    outline: none;
+    background: #fff;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 2rem;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.card {
+    margin: auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: 15rem;
+    width: 25rem;
+    flex-grow: 0;
+}
+
+.contratos {
+    margin-top: 40px;
+}

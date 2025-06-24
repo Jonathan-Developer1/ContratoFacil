@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minhas Notificações</title>
+</head>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+  }
+
+  /* ============================
+   Menu lateral fixo à esquerda
+============================= */
+  .sidebar {
+    width: 300px;
+    background: #acabab;
+    color: black;
+    padding: 10px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .logo {
+    display: flex;
+  }
+
+  .logo h1 {
+    text-align: center;
+    font-size: 25px;
+    margin: 20px 0 10px 0;
+  }
+
+  .logo img {
+    width: 60px;
+    height: 60px;
+    padding: 5px 10px;
+    margin: 0px;
+  }
+
+  span {
+    margin-left: 1rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  nav ul {
+    list-style: none;
+    font-size: 1.3rem;
+    padding: 10px 20px;
+
+  }
+
+  nav ul li {
+    margin: 2rem 0 2rem 0;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .sair {
+    margin-top: 500px;
+    display: block;
+  }
+
+  /* ============================
+   Conteúdo principal (lado direito)
+  ============================= */
+  .conteudo {
+    flex: 1;
+    padding: 30px;
+    margin-left: 321px;
+    height: 100vh;
+    overflow-y: auto;
+    background: #fff;
+  }
+
+  .botao {
+    background: #007BFF;
+    color: black;
+    border: none;
+    padding: 12px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+
+  .botao:hover {
+    background: #0056b3;
+    color: black;
+  }
+
+  h1 {
+    margin-top: 0;
+    font-size: 28px;
+    color: #111;
+  }
+
+  input#pesquisar {
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  .tabela-container table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .tabela-container th,
+  .tabela-container td {
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .tabela-container th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+  }
+
+  .linha-clicavel {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .linha-clicavel:hover {
+    background-color: #f0f0f0;
+  }
+</style>
+
+<body>
+  <!-- ============================
+       Menu Lateral
+  ============================= -->
+  <aside class="sidebar">
+    <div class="logo">
+      <img src="assets/imgs/Logo_ContratoFacil.png" alt="">
+      <h1>ContratoFácil</h1>
+    </div>
+    <span id="nome"></span>
+    <nav>
+      <ul>
+        <li><a href="telaNotificacoes.html">Notificações</a></li>
+        <li><a href="configuracoes.html">Configurações</a></li>
+        <li><a href="#" id="sair" class="sair">Sair</a></li>
+
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="conteudo">
+    <h1>Minhas Notificações</h1>
+    <a href="criar.html" class="botao">Criar uma notificação</a>
+    <a href="chat.html" class="botao">Conversar com um gestor</a>
+    <input type="text" id="pesquisar" placeholder="Pesquisar notificações..." />
+
+    <div class="tabela-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Prazo</th>
+            <th>Status</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody id="lista-notificacoes">
+          <tr>
+            <td colspan="4">Carregando notificações...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const cpf = localStorage.getItem('cpf');
+      const tabela = document.getElementById('lista-notificacoes');
+      const campoBusca = document.getElementById('pesquisar');
+
+      if (!cpf) {
+        tabela.innerHTML = '<tr><td colspan="4">CPF não encontrado. Faça login novamente.</td></tr>';
+        return;
+      }
+
+      try {
+        const resposta = await fetch('http://localhost:3000/notificacoes');
+        const todasNotificacoes = await resposta.json();
+
+        let notificacoes = todasNotificacoes.filter(n => n.destinatario === cpf);
+
+        function renderizarTabela(dados) {
+          tabela.innerHTML = '';
+
+          if (dados.length === 0) {
+            tabela.innerHTML = '<tr><td colspan="4">Nenhuma notificação encontrada.</td></tr>';
+            return;
+          }
+
+          dados.forEach(n => {
+            const tr = document.createElement('tr');
+            tr.classList.add('linha-clicavel');
+            tr.innerHTML = `
+              <td>${n.titulo}</td>
+              <td>${n.descricao.length > 30 ? n.descricao.slice(0, 30) + '...' : n.descricao}</td>
+              <td>${n.validade}</td>
+              <td>${n.status}</td>
+              <td>❯</td>
+            `;
+            tr.addEventListener('click', () => abrirNotificacao(n.id));
+            tabela.appendChild(tr);
+          });
+        }
+
+        renderizarTabela(notificacoes);
+
+        campoBusca.addEventListener('input', () => {
+          const termo = campoBusca.value.toLowerCase();
+          const filtradas = notificacoes.filter(n =>
+            n.titulo.toLowerCase().includes(termo) ||
+            n.descricao.toLowerCase().includes(termo) ||
+            n.status.toLowerCase().includes(termo)
+          );
+          renderizarTabela(filtradas);
+        });
+
+      } catch (erro) {
+        console.error('Erro ao buscar notificações:', erro);
+        tabela.innerHTML = '<tr><td colspan="4">Erro ao carregar notificações.</td></tr>';
+      }
+    });
+
+    function abrirNotificacao(id) {
+      localStorage.setItem('notificacaoId', id);
+      window.location.href = 'notificacao-detalhe.html';
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configurações</title>
+</head>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/configuracoes.css">
+<body>
+    <div class="container">
+    <aside class="sidebar">
+               <div class="logo">
+            <img src="assets/imgs/Logo_ContratoFacil.png" alt="logo">
+            <h1>ContratoFácil</h1>
+        </div>
+        <div id="perfil">
+        <img src="assets/imgs/perfil.png" alt="">
+      <span id="nome"></span>
+      </div>
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="window.history.go(-1)">Voltar</a></li>
+                    <li><a href="#">Sair</a></li>
+                </ul>
+            </nav>
+        </aside>
+    
+         <main class="conteudo">
+            
+            <div class="endereco">
+            <h1>Atualize seu endereço</h1>
+            <label for="cep">Digite seu cep</label>
+            <input type="text" id="cep">
+            <div id="informacoes">
+            </div>
+            </div>
+           
+            <div class="senha">
+                <h1>Troque sua senha</h1>
+            <label for="senha">Digite sua nova senha</label>
+            <input type="password" id="senha">
+            <button id="enviar-senha">Enviar</button>
+            </div>
+            
+         </main> 
+         
+
+
+
+
+  </div>
+</body>
+<script src="assets/script/configuracoes.js"></script>
+<script src="assets/script/get-contrato.js"></script>
+<script src="assets/script/login.js"></script>

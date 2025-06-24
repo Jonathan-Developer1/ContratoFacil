@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard do Funcionário</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    /* ============================
+   Menu lateral fixo à esquerda
+============================= */
+    .sidebar {
+        width: 300px;
+        background: #acabab;
+        color: black;
+        padding: 10px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .logo {
+        display: flex;
+    }
+
+    .logo h1 {
+        text-align: center;
+        font-size: 25px;
+        margin: 20px 0 10px 0;
+    }
+
+    .logo img {
+        width: 60px;
+        height: 60px;
+        padding: 5px 10px;
+        margin: 0px;
+    }
+    #perfil{
+  margin-left:20px;
+}
+#perfil span{
+ margin-left: 1rem;
+}
+
+#perfil img{
+  width: 30px;
+}
+    span
+    {
+        margin-left: 1rem;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    nav ul {
+        list-style: none;
+        font-size: 1.3rem;
+        padding: 10px 20px;
+
+    }
+
+    nav ul li {
+        margin: 2rem 0 2rem 0;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .sair {
+        margin-top: 500px;
+        display: block;
+    }
+
+    /* ============================
+   Conteúdo principal (lado direito)
+============================= */
+    .conteudo {
+        flex: 1;
+        padding: 30px;
+        margin-left: 321px;
+        height: 100vh;
+        overflow-y: auto;
+        background: #fff;
+    }
+
+    .resumo-cards {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+
+    .card {
+        background-color: #ccc;
+        padding: 20px;
+        border-radius: 8px;
+        flex: 1;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        flex: 1;
+        text-align: center;
+    }
+
+    .card p {
+        margin: 0;
+        font-weight: 600;
+    }
+
+    .card h2 {
+        font-size: 36px;
+        margin: 10px 0 0 0;
+    }
+
+    .tabela-contratos {
+        background-color: white;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .topo-tabela {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .topo-tabela input {
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #fdfdfd;
+        border: 1px solid #ccc;
+    }
+
+    /* Células da tabela */
+    th,
+    td {
+        padding: 14px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+
+    /* Cabeçalho da tabela */
+    th {
+        background-color: #f1f1f1;
+    }
+
+    #lista-funcionario a {
+        color: darkcyan;
+    }
+</style>
+
+<body>
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="assets/imgs/Logo_ContratoFacil.png" alt="">
+        <h1>ContratoFácil</h1>
+      </div>
+      <div id="perfil">
+        <img src="assets/imgs/perfil.png" alt="">
+      <span id="nome"></span>
+      </div>
+      
+      <nav>
+        <ul>
+          <li><a href="dashboard-funcionario.html">Painel de controle</a></li>
+                <li><a href="contratos-exibicao-funcionario.html">Contratos</a></li>
+                <li><a href="notificacoes-funcionario.html">Notificações</a></li>
+                <li><a href="configuracoes.html">Configurações</a></li>
+                <li><a href="login.html" id="sair" class="sair">Sair</a></li>
+
+        </ul>
+      </nav>
+    </aside>
+    <main class="conteudo">
+        <h1>Início</h1>
+        <div class="tabela-contratos">
+            <div class="topo-tabela">
+                <h2>Meus Contratos</h2>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Cargo</th>
+                        <th>Tipo</th>
+                        <th>Visualizar</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-funcionario">
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script src="assets/script/login.js"></script>
+    <script src="assets/script/get-contrato.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const cpf = localStorage.getItem('cpf');
+            const tabela = document.getElementById('lista-contratos');
+            const campoBusca = document.getElementById('pesquisar');
+
+            const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+            console.log(usuario.tipo)
+            if (usuario.tipo != "Funcionário") {
+                alert("Você não tem permissão");
+                window.history.go(-1);
+            }
+
+            if (!cpf) {
+                tabela.innerHTML = '<tr><td colspan="5">CPF não encontrado. Faça login.</td></tr>';
+                return;
+            }
+
+            try {
+                const resposta = await fetch('http://localhost:3000/contratos');
+                const todos = await resposta.json();
+
+                // Filtra os contratos do funcionário
+                let contratos = todos.filter(c => c.cpf === cpf);
+
+                const renderizar = (lista) => {
+                    tabela.innerHTML = '';
+                    if (lista.length === 0) {
+                        tabela.innerHTML = '<tr><td colspan="5">Nenhum contrato encontrado.</td></tr>';
+                        return;
+                    }
+
+                    lista.forEach(c => {
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `
+                        <td>${c.nome}</td>
+                        <td>${c.tipo}</td>
+                        <td>${c.status}</td>
+                        <td>${c.vencimento}</td>
+                        <td>➡️</td>
+                        `;
+                        tabela.appendChild(tr);
+                    });
+                };
+
+                // Contadores
+                document.getElementById('ativos').textContent = contratos.filter(c => c.status === 'ativo').length;
+                document.getElementById('vencendo').textContent = contratos.filter(c => estaVencendoEsteMes(c.vencimento)).length;
+                document.getElementById('inadimplentes').textContent = contratos.filter(c => c.status === 'inadimplente').length;
+
+                // Render inicial
+                renderizar(contratos);
+
+                // Filtro de busca
+                campoBusca.addEventListener('input', () => {
+                    const termo = campoBusca.value.toLowerCase();
+                    const filtrados = contratos.filter(c =>
+                        c.nome.toLowerCase().includes(termo) ||
+                        c.tipo.toLowerCase().includes(termo) ||
+                        c.status.toLowerCase().includes(termo)
+                    );
+                    renderizar(filtrados);
+                });
+
+            } catch (erro) {
+                console.error('Erro ao carregar contratos:', erro);
+                tabela.innerHTML = '<tr><td colspan="5">Erro ao carregar contratos.</td></tr>';
+            }
+        });
+
+        // Verifica se a data está dentro do mês atual
+        function estaVencendoEsteMes(data) {
+            const hoje = new Date();
+            const vencimento = new Date(data);
+            return (
+                vencimento.getMonth() === hoje.getMonth() &&
+                vencimento.getFullYear() === hoje.getFullYear()
+            );
+        }
+
+    </script>
+
+    
+    
+</body>
+
+</html>

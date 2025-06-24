@@ -1,0 +1,151 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================
+   Menu lateral fixo à esquerda
+============================= */
+.sidebar {
+  width: 300px;
+  background: #acabab;
+  color: black;
+  padding: 10px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  gap: 0;
+}
+.logo{
+  display: flex;
+}
+
+.logo h1{
+  text-align: center;
+  font-size: 25px;
+  margin:20px 0 10px 0;
+}
+
+.logo img {
+  width: 60px;
+  height: 60px;
+  padding: 5px 10px;
+  margin: 0px;
+}
+
+span
+    {
+        margin-left: 1rem;
+    }
+a {
+  text-decoration: none;
+  color: black;
+}
+
+nav ul {
+  list-style: none;
+  font-size: 1.3rem;
+  padding: 10px 20px;
+
+}
+
+nav ul li {
+  margin: 2rem 0 2rem 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+.sair {
+  margin-top: 500px;
+  display: block;
+}
+.conteudo {
+    flex: 1;
+    padding: 30px;
+    margin-left: 321px;
+    height: 100vh;
+    overflow-y: auto;
+    background: #fff;
+}
+form {
+    margin: 1rem auto;
+    height: fit-content;
+    width: fit-content;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid black;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+
+}
+.sidebar
+{
+    height: 100vh;
+}
+label {
+  display: block;
+  margin-bottom: 2px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+input {
+  width: 600px;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background-color: #fdfdfd;
+  transition: border-color 0.2s;
+}
+
+input:focus {
+  border-color: #1e88e5;
+  outline: none;
+  background: #fff;
+}
+
+select
+{
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background-color: #fdfdfd;
+  transition: border-color 0.2s;  
+}
+select:focus {
+  border-color: #1e88e5;
+  outline: none;
+  background: #fff;
+}
+form h1
+{
+    color: #1e88e5;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+button
+    {
+   background-color: #32CD32;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 10px;
+    }
+
+.voltar
+{
+     background-color: #ebebeb;
+}

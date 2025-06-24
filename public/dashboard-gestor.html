@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Controle</title>
+    <link rel="stylesheet" href="assets/css/dashboard-gestor.css">
+</head>
+
+<body>
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="assets/imgs/Logo_ContratoFacil.png" alt="">
+        <h1>ContratoFácil</h1>
+      </div>
+      <div id="perfil">
+        <img src="assets/imgs/perfil.png" alt="">
+      <span id="nome"></span>
+      </div>
+      
+      <nav>
+        <ul>
+          <li><a href="dashboard-gestor.html">Painel de controle</a></li>
+          <li><a href="contratos-exibicao.html">Contratos</a></li>
+          <li><a href="telaNotificacoes.html">Notificações</a></li>
+          <li><a href="configuracoes.html">Configurações</a></li>
+          <li><a href="#" id="sair" class="sair">Sair</a></li>
+
+        </ul>
+      </nav>
+    </aside>
+    <main class="conteudo">
+        <h1>Painel de controle</h1>
+        <div class="cards">
+            <div class="card">
+                <h3>Contratos Ativos</h3>
+                <p id="contagem"></p>
+            </div>
+        </div>
+
+        <button class="btn-gestor"><a href="cadastroGestor.html">Novo gestor</a></button>
+        <button class="btn-func"><a href="cadastroFunc.html">Novo Funcionário</a></button>
+
+        <section class="contratos" id="contratos">
+            <h2>Últimos Contratos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Cargo</th>
+                        <th>Tipo</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="lista">
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+<script>
+    const usuario = JSON.parse(localStorage.getItem("usuarioLogado"));
+    console.log(usuario.tipo)
+    if (usuario.tipo != "Gestor") {
+        alert("Você não tem permissão");
+        window.history.go(-1);
+    }
+</script>
+<script src="assets/script/login.js"></script>
+<script src="assets/script/get-contrato.js"></script>
+
+</html>

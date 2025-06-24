@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalhe da Notificação</title>
+</head>
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f5f5f5;
+        padding: 40px;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .card p {
+        margin: 15px 0;
+        font-size: 16px;
+        color: #333;
+    }
+
+    .voltar {
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <main class="container">
+        <h1>Detalhe da Notificação</h1>
+        <div id="detalhe" class="card"></div>
+        <a href="notificacoes-funcionario.html" class="voltar">⬅ Voltar</a>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const id = localStorage.getItem('notificacaoId');
+            const container = document.getElementById('detalhe');
+
+            if (!id) {
+                container.innerHTML = '<p>Notificação não encontrada.</p>';
+                return;
+            }
+
+            try {
+                const resposta = await fetch(`http://localhost:3000/notificacoes/${id}`);
+                if (!resposta.ok) throw new Error('Erro ao carregar notificação');
+
+                const notificacao = await resposta.json();
+
+                container.innerHTML = `
+                    <p><strong>Título:</strong> ${notificacao.titulo}</p>
+                    <p><strong>Descrição:</strong> ${notificacao.descricao}</p>
+                    <p><strong>Prazo:</strong> ${notificacao.validade}</p>
+                    <p><strong>Status:</strong> ${notificacao.status}</p>
+                `;
+            } catch (erro) {
+                console.error(erro);
+                container.innerHTML = '<p>Erro ao carregar a notificação.</p>';
+            }
+        });
+
+    </script>
+</body>
+
+</html>
