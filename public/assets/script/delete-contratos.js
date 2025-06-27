@@ -5,7 +5,7 @@
           method: "DELETE"
          }).then((response) => response.json())
          .then((json) => {
-          window.location.href = "https://meu-back-contratofacil-production.up.railway.app/api/contratos-exibicao";
+          window.location.href = "https://jonathan-developer1.github.io/ContratoFacil/public/contratos-exibicao.html";
          }).catch(console.error);
       }
           

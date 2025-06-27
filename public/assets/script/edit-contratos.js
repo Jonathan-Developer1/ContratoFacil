@@ -37,7 +37,7 @@
           .then((response) => response.json())
           .then((json) => {
             console.log(json);
-            window.location.href = "https://meu-back-contratofacil-production.up.railway.app/api/contratos-exibicao-funcionario";
+            window.location.href = "https://jonathan-developer1.github.io/ContratoFacil/public/contratos-exibicao.html";
           }).catch(console.error);
       }
     
@@ -182,22 +182,17 @@
         e.preventDefault();
               
         fetch(`https://meu-back-contratofacil-production.up.railway.app/api/contratos/${id}`, {
-          method: "PUT",
+          method: "PATCH",
           headers: {
             "Content-type": "application/json; charset=UTF-8",
           },
           body: JSON.stringify({
-            userId: 1,
-            nome: nome.value,
-            email: email.value,
-            telefone: telefone.value,
-            dataNascimento: dtnasc.value,
             cargo: cargo.value
           }),
         })
           .then((response) => response.json())
           .then((json) => {
             console.log(json);
-            window.location.href = "https://meu-back-contratofacil-production.up.railway.app/api/contratos-exibicao";
+            window.location.href = "https://jonathan-developer1.github.io/ContratoFacil/public/contratos-exibicao.html";
           }).catch(console.error);
       })}

@@ -35,6 +35,7 @@ function exibirContratosFuncionario()
     {
         json.forEach(contratos =>
     {
+      
         // Confere se os cpfs são iguais
         if(usuario.cpf == contratos.cpf)
         {
@@ -209,7 +210,7 @@ function exibicaoContratosFuncionario()
     {
         json.forEach(function(contratos)
     {
-        if(usuario.cpf == contratos.cpf)
+        if(usuario.tipo == "Funcionário" && usuario.cpf == contratos.cpf)
         {
             lista.innerHTML += `<tr>
                             <td>${contratos.nome}</td>
@@ -225,8 +226,8 @@ function exibicaoContratosFuncionario()
 // Função que exibe os nomes dos usuários na tela
 function exibeNome()
 {
-    const nome = document.getElementById('nome');
-    nome.innerHTML = usuario.nome;
+    const nomeU = document.getElementById('nome-usuario');
+    nomeU.innerHTML = usuario.nome;
 
 }
     

@@ -18,7 +18,7 @@
       </div>
       <div id="perfil">
         <img src="assets/imgs/perfil.png" alt="">
-      <span id="nome"></span>
+      <span id="nome-usuario"></span>
       </div>
       
       <nav>
@@ -34,7 +34,7 @@
     </aside>
 
     <main class="conteudo">
-    <form action="/contratos-exibicao.html" method="post" id="enviarContratos">
+    <form action="https://jonathan-developer1.github.io/ContratoFacil/public/contratos-exibicao.html" method="post" id="enviarContratos">
       <h1>Cadastro de Contrato</h1>
      <div>
         <label for="nome">Nome completo:</label>
@@ -61,7 +61,7 @@
             <option>Férias</option>
         </select>
      <button onclick= "postarContratos()" type="submit">Enviar</button>
-     <button class="voltar">Voltar</button>
+     <button class="voltar" onclick="window.history.go(-1)">Voltar</button>
     </form>
     </main>
     </div>
