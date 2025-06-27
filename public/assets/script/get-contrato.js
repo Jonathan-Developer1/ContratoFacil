@@ -133,7 +133,8 @@ function pesquisaFuncionarios()
     
     botao.addEventListener("click", (e) =>
     {
-        
+     
+        lista.innerHTML += "";
         e.preventDefault();
         
         const entrada = document.getElementById('pesquisar-funcionarios');
