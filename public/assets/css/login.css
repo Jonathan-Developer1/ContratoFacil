@@ -193,6 +193,10 @@ width: 100%;
     margin: 1rem;
   }
 
+  .left{
+    display: none;
+  }
+
   .holders input,
   .acesso .btn-secondary {
     max-width: 100%;
